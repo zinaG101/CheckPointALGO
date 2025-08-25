@@ -1,0 +1,30 @@
+ALGORITHM SentenceAnalysis
+VAR
+    character : CHAR
+    length, word_count, vowel_count : INTEGER
+BEGIN
+    length := 0
+    word_count := 1
+    vowel_count := 0
+
+    READ(character)
+    WHILE character <> '.' DO
+        length := length + 1
+
+        IF character = ' ' THEN
+            word_count := word_count + 1
+        END IF
+
+        IF character == 'a' OR character == 'e' OR character == 'i' OR character == 'o' OR character == 'u' OR
+           character == 'A' OR character == 'E' OR character == 'I' OR character == 'O' OR character == 'U' THEN
+            vowel_count:= vowel_count + 1
+        END IF
+        
+    END WHILE
+
+    length := length + 1  // Count the final period
+
+    write("Length of sentence: ", length)
+    write("Number of words: ", word_count)
+    write("Number of vowels: ", vowel_count)
+END 
